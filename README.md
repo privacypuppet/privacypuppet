@@ -1,24 +1,14 @@
-<p align="center">
+<div align="center">
   <img src="public/logo.svg" alt="PrivacyPuppet" width="320" />
-</p>
 
-<p align="center">
-  <strong>Interactive 3D avatar viewer — real-time head tracking, jaw animation, eye movement, and idle breathing.</strong><br/>
-  Runs entirely in the browser. No server. No tracking. Static export to any CDN.
-</p>
+  <p><strong>Interactive 3D avatar viewer — real-time head tracking, jaw animation, eye movement, and idle breathing.</strong><br/>
+  Runs entirely in the browser. No server. No tracking. Static export to any CDN.</p>
 
-<p align="center">
   <a href="https://github.com/TowyTowy/privacypuppet/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-7c5cfc?style=flat-square" alt="MIT License"/></a>
   <img src="https://img.shields.io/badge/Next.js-16-7c5cfc?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js 16"/>
   <img src="https://img.shields.io/badge/Three.js-r168-7c5cfc?style=flat-square&logo=threedotjs&logoColor=white" alt="Three.js"/>
   <img src="https://img.shields.io/badge/TypeScript-5-7c5cfc?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/>
-</p>
-
-<br/>
-
-<p align="center">
-  <img src="public/screenshots/og-image.png" width="55%" alt="PrivacyPuppet avatar viewer" />
-</p>
+</div>
 
 ---
 
@@ -31,13 +21,6 @@
 - **Multiple backgrounds** — gradient themes + photorealistic environments
 - **Immersive mode** — hide all UI for a clean presentation view
 - **Static export** — `npm run build` outputs to `/out`, deploys to any CDN
-
-## Screenshots
-
-<p align="center">
-  <img src="public/screenshots/newexample.png" width="49%" alt="Avatar viewer — Kofi" />
-  <img src="public/screenshots/oldexample.png" width="49%" alt="Avatar viewer — previous model" />
-</p>
 
 ## Tech Stack
 
