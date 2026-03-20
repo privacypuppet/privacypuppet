@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Shield icon -->
+  <g transform="translate(12, 10)" filter="url(#glow)">
+    <path d="M29 0 L58 10 L58 30 C58 46 44 58 29 62 C14 58 0 46 0 30 L0 10 Z"
+          fill="#7c5cfc" opacity="0.15"/>
+    <path d="M29 2 L56 12 L56 30 C56 45 43 56 29 60 C15 56 2 45 2 30 L2 12 Z"
+          fill="none" stroke="#7c5cfc" stroke-width="2" opacity="0.8"/>
+    <!-- Person silhouette -->
+    <circle cx="29" cy="22" r="8" fill="#7c5cfc" opacity="0.9"/>
+    <path d="M14 46 C14 36 44 36 44 46" fill="#7c5cfc" opacity="0.9"/>
+  </g>
+
+  <!-- PrivacyPuppet wordmark -->
+  <text x="82" y="38"
+        font-family="system-ui, -apple-system, 'Inter', sans-serif"
+        font-size="28"
+        font-weight="700"
+        letter-spacing="-0.5"
+        fill="#7c5cfc"
+        filter="url(#glow)">PrivacyPuppet</text>
+
+  <!-- Tagline -->
+  <text x="83" y="57"
+        font-family="'Space Mono', 'Courier New', monospace"
+        font-size="10"
+        letter-spacing="2"
+        fill="#ffffff"
+        opacity="0.4">INTERACTIVE 3D AVATAR</text>
+</svg>

@@ -1,23 +1,43 @@
-# PrivacyPuppet
-
-**Interactive 3D avatar viewer** — real-time head tracking, jaw animation, eye movement, idle breathing, and multiple backgrounds. Runs entirely in the browser with no server-side processing.
+<p align="center">
+  <img src="public/logo.svg" alt="PrivacyPuppet" width="320" />
+</p>
 
 <p align="center">
-  <img src="public/screenshots/screenshot-liam.png" width="49%" alt="Liam avatar" />
-  <img src="public/screenshots/screenshot-yuki.png" width="49%" alt="Yuki avatar" />
+  <strong>Interactive 3D avatar viewer — real-time head tracking, jaw animation, eye movement, and idle breathing.</strong><br/>
+  Runs entirely in the browser. No server. No tracking. Static export to any CDN.
+</p>
+
+<p align="center">
+  <a href="https://github.com/TowyTowy/privacypuppet/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-7c5cfc?style=flat-square" alt="MIT License"/></a>
+  <img src="https://img.shields.io/badge/Next.js-16-7c5cfc?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js 16"/>
+  <img src="https://img.shields.io/badge/Three.js-r168-7c5cfc?style=flat-square&logo=threedotjs&logoColor=white" alt="Three.js"/>
+  <img src="https://img.shields.io/badge/TypeScript-5-7c5cfc?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/>
+</p>
+
+<br/>
+
+<p align="center">
+  <img src="public/screenshots/og-image.png" width="55%" alt="PrivacyPuppet avatar viewer" />
 </p>
 
 ---
 
 ## Features
 
-- **Mouse & touch head tracking** — the avatar follows your cursor or finger
-- **Jaw animation** — open/close the mouth on demand
+- **Mouse & touch head tracking** — avatar follows your cursor or finger in real time
+- **Jaw animation** — toggle mouth open/close on demand
 - **Eye movement & blinking** — procedural gaze and random blinks
-- **Idle breathing** — subtle sway and jitter keep the avatar feeling alive
+- **Idle breathing** — subtle sway and jitter keep the avatar alive
 - **Multiple backgrounds** — gradient themes + photorealistic environments
-- **Immersive mode** — hide all UI for a clean, distraction-free view
-- **Static export** — deploys to any CDN with `npm run build`
+- **Immersive mode** — hide all UI for a clean presentation view
+- **Static export** — `npm run build` outputs to `/out`, deploys to any CDN
+
+## Screenshots
+
+<p align="center">
+  <img src="public/screenshots/newexample.png" width="49%" alt="Avatar viewer — Kofi" />
+  <img src="public/screenshots/oldexample.png" width="49%" alt="Avatar viewer — previous model" />
+</p>
 
 ## Tech Stack
 
@@ -32,17 +52,10 @@
 ## Getting Started
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
-npm run dev
-
-# Build static export (outputs to /out)
-npm run build
+npm run dev       # http://localhost:3000
+npm run build     # static export → /out
 ```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Project Structure
 
@@ -70,32 +83,27 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ## How It Works
 
 ### `Head.tsx` — Avatar Renderer
-The core component handles two fundamentally different animation systems:
+Handles two fundamentally different animation systems transparently:
 
-- **Morph-target path** (Avaturn-compatible models) — drives blend shapes directly for facial expressions
-- **Bone-based path** (MakeHuman/MPFB models) — uses quaternion rotation with rest-pose offsets, clamped rotation ranges, and procedural eye gaze
+- **Morph-target path** (Avaturn-compatible models) — drives blend shapes for facial expressions
+- **Bone-based path** (MakeHuman/MPFB models) — quaternion rotation with rest-pose offsets, clamped ranges, and procedural eye gaze
 
-Both paths share the same input: normalized head pitch/yaw from `Controls.tsx`.
+Both paths consume the same normalized pitch/yaw input from `Controls.tsx`.
 
 ### `Controls.tsx` — Input & Animation Driver
-Captures mouse and touch position, maps it to head rotation angles, and drives:
-- Head yaw (left/right) and pitch (up/down)
-- Idle sway with subtle jitter
-- Jaw open/close lerp
-- Random blink timing
+Maps mouse/touch position to head rotation and drives idle sway, jaw lerp, and blink timing.
 
 ### `Scene.tsx` — Three.js Canvas
-Sets up the camera, lighting, and background. Backgrounds are either CSS gradient strings or image textures loaded dynamically. The canvas fills the viewport with `dpr` capped for performance.
+Camera, lighting, and background system. Backgrounds are CSS gradients or dynamically loaded image textures.
 
 ### `page.tsx` — UI Shell
-Manages model/background selection state, keyboard shortcuts, mobile detection, and the loading indicator. The `MODELS` array is the single source of truth for which avatars are available.
+Model/background selection, keyboard shortcuts, mobile detection, loading state. The `MODELS` array is the single source of truth for available avatars.
 
 ## Adding Your Own Model
 
-1. Create or download a humanoid model in **MakeHuman** or **MPFB2**
-2. Export to Blender, rig if needed, then export as **GLB**
-3. Place the `.glb` in `public/mpfb_models/`
-4. Add an entry to the `MODELS` array in `src/app/page.tsx`:
+1. Build a humanoid in **MakeHuman** or **MPFB2**, export to Blender → GLB
+2. Drop the `.glb` into `public/mpfb_models/`
+3. Add an entry to `MODELS` in `src/app/page.tsx`:
 
 ```ts
 {
@@ -106,25 +114,19 @@ Manages model/background selection state, keyboard shortcuts, mobile detection, 
 }
 ```
 
-Tweak `position` (Y offset) and `scale` until the avatar is centered in the viewport. The bone-detection logic in `Head.tsx` handles MakeHuman rigs automatically.
+Adjust `position` Y to center the avatar in viewport. The bone-detection logic in `Head.tsx` handles MakeHuman rigs automatically.
 
-> **Bringing your own Avaturn model?** The morph-target code path is still present — just point the URL at an Avaturn-exported GLB and the renderer will switch to blend-shape animation automatically.
+> **Using an Avaturn model?** The morph-target code path is still present — point the URL at an Avaturn-exported GLB and the renderer switches to blend-shape animation automatically.
 
 ## Keyboard Shortcuts
 
 | Key | Action |
 |---|---|
-| `I` | Toggle immersive mode (hides all UI) |
+| `I` | Toggle immersive mode |
 | `M` | Toggle mouth open/close |
 
-In immersive mode: click anywhere (desktop) or tap the exit button (mobile) to return.
+Click anywhere (desktop) or tap the exit button (mobile) to leave immersive mode.
 
 ## License
 
 MIT — see [LICENSE](LICENSE)
-
----
-
-<p align="center">
-  <img src="public/screenshots/screenshot-kofi.png" width="33%" alt="Kofi avatar" />
-</p>
