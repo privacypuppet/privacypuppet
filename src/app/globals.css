@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --accent: #7c5cfc;
+  --accent-glow: rgba(124, 92, 252, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Hide ALL Next.js dev overlays / indicators ─── */
+[class*="nextjs-toast"],
+[class*="nextjs"],
+nav[class*="nextjs"],
+#__next-build-indicator,
+[data-nextjs-toast],
+nextjs-portal,
+[data-nextjs-dialog-overlay],
+body>[style*="position: fixed"][style*="z-index"] {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Loading shimmer */
+@keyframes shimmer {
+  0% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.loading-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Subtle glow for brand */
+@keyframes brand-pulse {
+
+  0%,
+  100% {
+    text-shadow: 0 0 20px var(--accent-glow), 0 0 40px rgba(124, 92, 252, 0.1);
+  }
+
+  50% {
+    text-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(124, 92, 252, 0.2);
+  }
+}
+
+.brand-glow {
+  animation: brand-pulse 4s ease-in-out infinite;
+}
+
+/* ─── Ad widget position override (mobile only — bypasses cached ad-widget.js) ─── */
+@media (max-width: 480px) {
+
+  body #pp-ad-widget,
+  html body #pp-ad-widget,
+  #pp-ad-widget#pp-ad-widget {
+    bottom: 160px !important;
+  }
+}
