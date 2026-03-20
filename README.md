@@ -10,6 +10,10 @@
   <img src="https://img.shields.io/badge/TypeScript-5-7c5cfc?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/>
 </div>
 
+<div align="center">
+  <img src="public/screenshots/liam.png" width="70%" alt="Liam — open-source MakeHuman avatar" />
+</div>
+
 ---
 
 ## Features
