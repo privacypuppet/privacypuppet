@@ -4,14 +4,16 @@
   <p><strong>Interactive 3D avatar viewer — real-time head tracking, jaw animation, eye movement, and idle breathing.</strong><br/>
   Runs entirely in the browser. No server. No tracking. Static export to any CDN.</p>
 
-  <a href="https://github.com/TowyTowy/privacypuppet/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-7c5cfc?style=flat-square" alt="MIT License"/></a>
+  <a href="https://github.com/privacypuppet/privacypuppet/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-7c5cfc?style=flat-square" alt="MIT License"/></a>
   <img src="https://img.shields.io/badge/Next.js-16-7c5cfc?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js 16"/>
   <img src="https://img.shields.io/badge/Three.js-r168-7c5cfc?style=flat-square&logo=threedotjs&logoColor=white" alt="Three.js"/>
   <img src="https://img.shields.io/badge/TypeScript-5-7c5cfc?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/>
 </div>
 
 <div align="center">
-  <img src="public/screenshots/liam.png" width="70%" alt="Liam — open-source MakeHuman avatar" />
+  <img src="public/screenshots/kofi.png" width="32%" alt="Kofi" />
+  <img src="public/screenshots/yuki.png" width="32%" alt="Yuki" />
+  <img src="public/screenshots/liam.png" width="32%" alt="Liam" />
 </div>
 
 ---
