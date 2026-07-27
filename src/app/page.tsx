@@ -9,19 +9,19 @@ const MODELS = [
   {
     name: "Kofi",
     url: "/mpfb_models/kofi-v2.glb",
-    position: [0, -1.45, 0] as [number, number, number],
+    position: [0, -1.55, 0] as [number, number, number],
     scale: 1,
   },
   {
     name: "Yuki",
     url: "/mpfb_models/yuki-v2.glb",
-    position: [0, -1.15, 0] as [number, number, number],
+    position: [0, -1.25, 0] as [number, number, number],
     scale: 1,
   },
   {
     name: "Liam",
     url: "/mpfb_models/liam-v2.glb",
-    position: [0, -1.45, 0] as [number, number, number],
+    position: [0, -1.5, 0] as [number, number, number],
     scale: 1,
   },
 ];
@@ -222,18 +222,12 @@ export default function Home() {
         {/* ─── Immersive exit: desktop = click anywhere, mobile = visible button ─── */}
         {cursorHidden && (
           <>
-            {/* Desktop: invisible overlay + subtle hint */}
+            {/* Desktop: hint text + click to exit (no overlay blocking scroll) */}
             <div
-              className="absolute inset-0 z-40 hidden md:block"
-              style={{ cursor: "none" }}
+              className="absolute top-5 left-1/2 -translate-x-1/2 z-40 hidden md:block text-[10px] text-white/15 font-[var(--font-mono)] tracking-widest uppercase cursor-none"
               onClick={exitImmersive}
             >
-              <div
-                className="absolute top-5 left-1/2 -translate-x-1/2 text-[10px] text-white/15 font-[var(--font-mono)] tracking-widest uppercase"
-                style={{ cursor: "none" }}
-              >
-                Click or press I to exit
-              </div>
+              Click or press I to exit
             </div>
             {/* Mobile: visible exit button at top */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 md:hidden">
