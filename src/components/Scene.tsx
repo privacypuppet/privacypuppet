@@ -2,7 +2,7 @@
 
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
+import { Environment, OrbitControls } from "@react-three/drei";
 import Head from "./Head";
 
 export type SceneConfig = {
@@ -77,6 +77,15 @@ export default function Scene({
 
           <ambientLight intensity={0.5} />
           <directionalLight position={[0, 0, 5]} intensity={0.5} />
+
+          <OrbitControls
+            enableRotate={false}
+            enablePan={false}
+            enableZoom={true}
+            minDistance={0.3}
+            maxDistance={2}
+            zoomSpeed={0.8}
+          />
         </Suspense>
       </Canvas>
     </div>
